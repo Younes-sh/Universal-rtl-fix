@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Universal RTL</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="panel">
+    <header class="panel__header">
+      <div class="mark" aria-hidden="true">
+        <span class="mark__glyph mark__glyph--scrambled">ﺱ</span>
+        <span class="mark__arrow">←</span>
+        <span class="mark__glyph mark__glyph--fixed">س</span>
+      </div>
+      <div class="panel__title">
+        <!--  نام افزونه -->
+        <!--  Plugin name -->
+        <h1 data-i18n="extName">RTL Language Fix</h1>
+        <p class="panel__subtitle">Persian, Arabic & Hebrew</p>
+      </div>
+    </header>
+
+    <section class="toggle-row" aria-label="Enable or disable the plugin">
+      <div class="toggle-row__text">
+        <!--  متن برچسب سوییچ اصلی -->
+        <!--  Main switch label text -->
+        <span class="toggle-row__label" data-i18n="activeOnPage">Active on this page</span>
+        <span class="toggle-row__hint" id="statusHint">Checking…</span>
+      </div>
+      <button class="switch" id="mainSwitch" role="switch" aria-checked="false">
+        <span class="switch__thumb"></span>
+      </button>
+    </section>
+
+    <section class="langs" aria-label="Target languages">
+      
+      <h2 class="langs__title" data-i18n="languagesTitle">Languages to be modified</h2>
+      
+      <div class="langs__list">
+        <label class="lang-chip">
+          <input type="checkbox" data-lang="fa" />
+          <span class="lang-chip__script">FA</span>
+          <span class="lang-chip__name">فارسی</span>
+        </label>
+        <label class="lang-chip">
+          <input type="checkbox" data-lang="ar" />
+          <span class="lang-chip__script">Ar</span>
+          <span class="lang-chip__name">عربی</span>
+        </label>
+        <label class="lang-chip">
+          <input type="checkbox" data-lang="he" />
+          <span class="lang-chip__script">He</span>
+          <span class="lang-chip__name">עברית</span>
+        </label>
+      </div>
+    </section>
+
+    <footer class="panel__footer">
+      <!--  متن توضیحات فوتر -->
+      <!--  Footer description text -->
+      <p data-i18n="footerDesc">The order of Latin words within right-aligned sentences is automatically corrected.</p>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

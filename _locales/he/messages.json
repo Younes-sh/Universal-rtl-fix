@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "תיקון תצוגת טקסט RTL (Universal RTL Fix)"
+  },
+  "extDescription": {
+    "message": "תיקון תצוגת טקסט בעברית, ערבית ופרסית בכל האתרים, גם כאשר משולבים טקסטים באנגלית או קוד."
+  },
+  "activeOnPage": {
+    "message": "פעיל בעמוד זה"
+  },
+  "statusActive": {
+    "message": "טקסטים מיושרים תוקנו בהצלחה."
+  },
+  "statusDisabled": {
+    "message": "התוסף מושבת."
+  },
+  "languagesTitle": {
+    "message": "שפות לשינוי"
+  },
+  "footerDesc": {
+    "message": "סדר המילים הלטיניות בתוך משפטים מיושרים לימין מתוקן באופן אוטומטי."
+  }
+}

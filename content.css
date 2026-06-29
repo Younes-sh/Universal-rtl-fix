@@ -1,0 +1,26 @@
+/* RTL Fix — content.css
+ * Subtle typography improvements for blocks marked as RTL by the extension.
+ * These rules are intentionally minimal to avoid conflicts with the original 
+ * platform design and solely focus on fixing readability issues.
+ * * بهبودهای ظریف تایپوگرافی برای بلوک‌هایی که افزونه آن‌ها را به عنوان RTL 
+ * علامت‌گذاری کرده است. این قوانین عمداً حداقلی هستند تا با طراحی اصلی 
+ * پلتفرم در تضاد نباشند و تنها مشکل خوانایی را رفع کنند.
+ */
+
+[data-rtlfix="rtl"] {
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+/* Inline code and numbers must always remain left-to-right, even inside an RTL block.
+   اعداد و کدهای درون‌خطی باید همیشه چپ‌به‌راست باقی بمانند، حتی داخل یک بلوک راست‌چین. */
+[data-rtlfix="rtl"] code {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+/* RTL lists: markers should appear on the right side.
+   لیست‌های راست‌چین: نشانگرها باید سمت راست بیایند. */
+[data-rtlfix="rtl"]:is(li) {
+  list-style-position: inside;
+}

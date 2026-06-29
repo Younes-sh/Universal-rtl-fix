@@ -1,0 +1,23 @@
+{
+  "extName": {
+    "message": "Universal RTL Fix"
+  },
+  "extDescription": {
+    "message": "Fixes RTL text rendering for Persian, Arabic & Hebrew, ensuring proper layout even with mixed English, formulas, and code."
+  },
+  "activeOnPage": {
+    "message": "Active on this page"
+  },
+  "statusActive": {
+    "message": "Auto-aligned texts are corrected."
+  },
+  "statusDisabled": {
+    "message": "The extension is disabled."
+  },
+  "languagesTitle": {
+    "message": "Languages to be modified"
+  },
+  "footerDesc": {
+    "message": "The order of Latin words within right-aligned sentences is automatically corrected."
+  }
+}

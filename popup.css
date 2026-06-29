@@ -1,0 +1,283 @@
+/* RTL Language Fix — popup.css
+*
+
+* Design Language
+*
+* Colors:
+* Warm parchment background (#F6F1E9),
+* deep navy ink (#23324A) for primary text,
+* soft azure (#3B6E8F) for interactive and active elements,
+* and muted burgundy (#B5483D) reserved only for the
+* "incorrect / before correction" state in the signature icon.
+*
+* Typography:
+* "Vazirmatn" is used as the primary typeface for Persian,
+* Arabic, and modern UI text due to its readability and
+* geometric balance.
+* A lightweight serif face is used for the symbolic letter
+* within the brand mark.
+*
+* Layout:
+* A clean vertical card-based interface focused on simplicity,
+* clarity, and accessibility.
+*
+* Signature Symbol:
+* The icon represents:
+*
+* ```
+    scrambled text  →  corrected text
+  ```
+*
+* visually communicating the exact problem solved by the
+* extension: fixing mixed RTL/LTR text rendering across websites.
+*
+* Author:
+* Younes SHEIKHLAR
+*
+* Project:
+* RTL Language Fix Extension
+  */
+
+
+
+/*  — popup.css
+ *
+ * زبان طراحی:
+ *   رنگ: زمینه‌ی دوداکرم گرم (#F6F1E9) + جوهر سرمه‌ای عمیق (#23324A) برای
+ *        متن اصلی + لاجوردی روشن (#3B6E8F) به‌عنوان رنگ تعامل/فعال +
+ *        زرشکی کم‌رنگ (#B5483D) فقط برای حالت "اشتباه/قبل از اصلاح" در نماد.
+ *   تایپ: «Vazirmatn» برای فارسی (هندسی، خوانا، مدرن) در نقش متن اصلی،
+ *         و یک serif باریک برای حرف بزرگ نمادین در مارک.
+ *   لایوت: کارت عمودی ساده با یک نماد امضادار در بالا.
+ *   امضا: نماد «حرف درهم‌ریخته → حرف درست» که خودِ مشکل و راه‌حل افزونه
+ *         را در یک نگاه نشان می‌دهد — به‌جای آیکون ژنریک سوییچ یا چرخ‌دنده.
+ */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: local("Vazirmatn"), local("Tahoma");
+}
+
+:root {
+  --paper: #f6f1e9;
+  --paper-deep: #ece3d3;
+  --ink: #23324a;
+  --ink-soft: #5b6678;
+  --accent: #3b6e8f;
+  --accent-soft: #c9dde6;
+  --flag: #b5483d;
+  --line: #ddd2bb;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 320px;
+  background: var(--paper);
+  font-family: "Vazirmatn", "Tahoma", "Segoe UI", sans-serif;
+  color: var(--ink);
+}
+
+.panel {
+  padding: 20px 18px 16px;
+}
+
+/* ---------- هدر و نماد ---------- */
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.mark {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 76px;
+  height: 56px;
+  background: var(--paper-deep);
+  border-radius: 10px;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+
+.mark__glyph {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.mark__glyph--scrambled {
+  color: var(--flag);
+  transform: scaleX(-1);
+  opacity: 0.85;
+}
+
+.mark__glyph--fixed {
+  color: var(--accent);
+}
+
+.mark__arrow {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.panel__title h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.panel__subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* ---------- ردیف سوییچ اصلی ---------- */
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.toggle-row__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.toggle-row__label {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.toggle-row__hint {
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: #cfc6b2;
+  cursor: pointer;
+  padding: 0;
+  flex: 0 0 auto;
+  transition: background 0.18s ease;
+}
+
+.switch[aria-checked="true"] {
+  background: var(--accent);
+}
+
+.switch__thumb {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.18s ease;
+}
+
+.switch[aria-checked="true"] .switch__thumb {
+  transform: translateX(-18px);
+}
+
+/* ---------- بخش زبان‌ها ---------- */
+
+.langs {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px 14px;
+  margin-bottom: 14px;
+}
+
+.langs__title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.langs__list {
+  display: flex;
+  gap: 8px;
+}
+
+.lang-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.lang-chip input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.lang-chip:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.lang-chip__script {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lang-chip__name {
+  font-size: 10.5px;
+  color: var(--ink-soft);
+}
+
+.lang-chip:has(input:checked) .lang-chip__script,
+.lang-chip:has(input:checked) .lang-chip__name {
+  color: var(--accent);
+}
+
+/* ---------- فوتر ---------- */
+
+.panel__footer {
+  text-align: center;
+}
+
+.panel__footer p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
